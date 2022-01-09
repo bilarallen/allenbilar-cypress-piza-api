@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://order-pizza-api.herokuapp.com",
+    "video": false,
+    "screenshotOnRunFailure": true
+}
