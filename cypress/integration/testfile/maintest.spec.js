@@ -7,7 +7,7 @@ describe('Pizza API Test Suite', function (){
         cy.clearJSONFile('cypress/fixtures/responsedata.json')
     })
 
-     it('Test Create Authorization', function(){
+     it('Test POST request create authorization', function(){
          cy.fixture('testdata').then((loginData) =>{
             const username = loginData.pizzaAccess['username']
             const password = loginData.pizzaAccess['password']
@@ -15,12 +15,12 @@ describe('Pizza API Test Suite', function (){
          })
      })
 
-     it('Test POST Request for Order Creation', function(){
+     it('Test POST request for order creation', function(){
           cy.POST_performCreatePizzaOrder()
      })
 
 
-     it('Test DELETE request to remove created Order', function(){
+     it('Test DELETE request to remove created order', function(){
           cy.DELETE_performRemovePizzaOrder().then((response) =>{
             expect(response).property('status').to.equal(200)
             expect(response).property('body').to.not.be.oneOf([null, ""])
@@ -28,7 +28,7 @@ describe('Pizza API Test Suite', function (){
           })
      })
      
-    it('Test GET Request to Get list of Orders', function(){
+    it('Test GET request to get list of orders', function(){
             cy.GET_performReturnListOfPizza().then((response) =>{
             expect(response).property('status').to.equal(200)
             expect(response).property('body').to.not.be.oneOf([null, ""])
